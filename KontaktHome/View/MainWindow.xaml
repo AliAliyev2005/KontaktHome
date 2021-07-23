@@ -4,16 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KontaktHome"
+        xmlns:user_control="clr-namespace:KontaktHome.View.User_Control"
         mc:Ignorable="d"
-        Title="Kontakt Home" Height="800" Width="1000"
+        Title="Kontakt Home" Height="900" Width="1200"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel x:Name="Header" Orientation="Horizontal" Background="#FF003C" Height="80" VerticalAlignment="Top">
-            <Image x:Name="Logo" Source="../Assets/Images/logo.png" Stretch="Fill" Width="80" />
+            <Image x:Name="Logo" Source="../Assets/Images/logo.png" Stretch="Fill" Height="50" Margin="20,0,0,0" />
 
-            <Border Name="SearchBoxBorder" Height="45" Width="400" Margin="220,0,300,0" CornerRadius="5" Background="White">
+            <Border Name="SearchBoxBorder" Height="45" Width="400" Margin="60,0,400,0" CornerRadius="5" Background="White">
                 <StackPanel Orientation="Horizontal" Margin="2">
-                    <TextBox x:Name="SearchBox" BorderThickness="0" Width="350" FontSize="14" VerticalContentAlignment="Center" Foreground="DimGray" Padding="10"/>
+                    <TextBox x:Name="SearchBox" BorderThickness="0" Width="350" FontSize="16" VerticalContentAlignment="Center" Foreground="DimGray" Padding="10"/>
                     <Button Margin="10,0,0,0" Height="30" Width="30" BorderThickness="0" Background="White">
                         <Image Source="../Assets/Images/search.png"/>
                     </Button>
@@ -23,13 +24,13 @@
 
         <Grid Background="Aqua" Margin="0,80,0,0">
             <StackPanel x:Name="Categories" Background="White" Width="250" HorizontalAlignment="Left">
-                <ListBox ItemsSource="{Binding Categories}" BorderThickness="0" Margin="10" Background="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox ItemsSource="{Binding Categories}" BorderThickness="0" Margin="2,10,2,0" Background="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="WhiteSmoke" Width="250" Height="50" CornerRadius="5">
+                            <Border Background="WhiteSmoke" Width="235" Height="50" CornerRadius="5">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="../Assets/Images/search.png"></Image>
-                                    <TextBlock FontSize="13" Foreground="Black" VerticalAlignment="Center" Text="{Binding Name}"/>
+                                    <Image Source="{Binding ImageUrl}" Width="20" Height="20" Margin="10,0,0,0"></Image>
+                                    <TextBlock FontSize="13" Foreground="Black" VerticalAlignment="Center" Margin="10,0,0,0" Text="{Binding Name}"/>
                                 </StackPanel>
                             </Border>
                         </DataTemplate>
@@ -37,7 +38,7 @@
                 </ListBox>
             </StackPanel>
             <ScrollViewer x:Name="Products" Background="Yellow" Margin="250,0,0,0">
-
+                
             </ScrollViewer>
         </Grid>
     </Grid>
